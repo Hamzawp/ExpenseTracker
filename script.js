@@ -71,6 +71,7 @@ incrementexpense = (a) => {
 function balanceamt(){
   let incomeamt = document.getElementById('incomeamt')
   let expenseamt = document.getElementById('expenseamt')
+  let balanceamt = document.getElementById('balanceamt')
   let income = incomeamt.innerHTML
   let expense = expenseamt.innerHTML
   income = income.replace('$','')
