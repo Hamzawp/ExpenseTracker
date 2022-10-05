@@ -39,6 +39,8 @@ function showcards() {
     <div class="card">
                 <p>${element.text}</p>
                 <p>${element.amount}</p>
+                <button id="${index}" onclick="deletecard(this.id)" class="delete">x</button>
+                </div>
             </div>`
   });
   let cardselm = document.getElementById('cards');
@@ -91,4 +93,17 @@ operations = (a) => {
   else{
     incrementincome(a);
   }
+}
+
+deletecard = (index) => {
+  let cards = localStorage.getItem("cards");
+  if (cards == null) {
+    cardsObj = [];
+  }
+  else {
+    cardsObj = JSON.parse(cards);
+  }
+  cardsObj.splice(index, 1);
+  localStorage.setItem("cards", JSON.stringify(cardsObj));
+  showcards();
 }

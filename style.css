@@ -50,12 +50,24 @@ nav h1{
 .card{
     background-color: #ffdaae;;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     font-size: 1.3rem;
     /* width: 20vw; */
     margin-bottom: 1vh;
-    border-right: 3.5px solid green;
+    /* border-right: 3.5px solid green; */
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.card p:nth-child(1){
+    margin-right: 15vw;
+}
+.card p:nth-child(2){
+    margin-right: 13px;
+}
+.delete{
+    width: 30px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
 }
 .form h3,.history h3{
     border-bottom: 1px solid rgba(96, 96, 96, 0.3);
