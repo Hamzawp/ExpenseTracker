@@ -50,7 +50,7 @@ nav h1{
 .card{
     background-color: #ffdaae;;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     font-size: 1.3rem;
     /* width: 20vw; */
     margin-bottom: 1vh;
@@ -60,9 +60,9 @@ nav h1{
 .card p:nth-child(1){
     margin-right: 15vw;
 }
-.card p:nth-child(2){
+/* .card p:nth-child(2){
     margin-right: 13px;
-}
+} */
 .delete{
     width: 30px;
     cursor: pointer;

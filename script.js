@@ -28,7 +28,7 @@ addBtn.addEventListener("click", function (e) {
   localStorage.setItem("cards", JSON.stringify(cardsObj));
   addTxt.value= "";
   addAmt.value= "";
-  operations(parseInt(myObj.amount))
+  operationincrease(parseInt(myObj.amount))
   balanceAmt()
   showcards();
 });
@@ -48,7 +48,6 @@ function showcards() {
                 <p>${element.text}</p>
                 <p>${element.amount}</p>
                 <button id="${index}" onclick="deletecard(this.id)" class="delete">x</button>
-                </div>
             </div>`
   });
   let cardselm = document.getElementById('cards');
@@ -67,6 +66,24 @@ incrementincome = (a) => {
   income = parseInt(income)
   income = income + a
   incomeamt.innerHTML = "$" + parseInt(income)
+}
+
+decrementincome = (a) => {
+  let incomeamt = document.getElementById('incomeamt')
+  let income = incomeamt.innerHTML
+  income = income.replace('$','')
+  income = parseInt(income)
+  income = income - a
+  incomeamt.innerHTML = "$" + parseInt(income)
+}
+
+decrementexpense = (a) => {
+  let expenseamt = document.getElementById('expenseamt')
+  let expense = expenseamt.innerHTML
+  expense = expense.replace('$','')
+  expense = parseInt(expense)
+  expense = expense - a
+  expenseamt.innerHTML = "$" + parseInt(expense)
 }
 
 incrementexpense = (a) => {
@@ -92,7 +109,7 @@ function balanceAmt(){
   let balance = income - expense
   balanceamt.innerHTML = "$" + parseInt(balance)
 }
-operations = (a) => {
+operationincrease = (a) => {
   if(a == 0){
     alert('Please enter a valid amount')
   }
@@ -104,8 +121,19 @@ operations = (a) => {
   }
 }
 
+operationdecrease = (a) => {
+  if(a<0){
+    decrementexpense(a);
+  }
+  else{
+    decrementincome(a);
+  }
+}
+
 deletecard = (index) => {
   let cards = localStorage.getItem("cards");
+  operationdecrease(parseInt(cardsObj[index].amount))
+  balanceAmt()
   if (cards == null) {
     cardsObj = [];
   }
