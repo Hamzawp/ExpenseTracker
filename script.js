@@ -1,10 +1,18 @@
+let incomeamt = document.getElementById('incomeamt')
+let expenseamt = document.getElementById('expenseamt')
+let balanceamt = document.getElementById('balanceamt')
+incomeamt.innerHTML = "$" + 0
+expenseamt.innerHTML = "$" + 0
+balanceamt.innerHTML = "$" + 0
+
 showcards()
-balanceamt()
+balanceAmt()
 
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function (e) {
   let addTxt = document.getElementById("addtext");
   let addAmt = document.getElementById('addamount')
+  console.log(parseInt(addAmt.value))
   let cards = localStorage.getItem("cards");
   if (cards == null) {
     cardsObj = [];
@@ -21,7 +29,7 @@ addBtn.addEventListener("click", function (e) {
   addTxt.value= "";
   addAmt.value= "";
   operations(parseInt(myObj.amount))
-  balanceamt()
+  balanceAmt()
   showcards();
 });
 
@@ -67,13 +75,14 @@ incrementexpense = (a) => {
   expense = expense.replace('$','')
   expense = parseInt(expense)
   expense = expense + a
+  expense = -expense
   expenseamt.innerHTML = "$" + parseInt(expense)
 }
 
-function balanceamt(){
-  let incomeamt = document.getElementById('incomeamt')
-  let expenseamt = document.getElementById('expenseamt')
-  let balanceamt = document.getElementById('balanceamt')
+function balanceAmt(){
+  // let incomeamt = document.getElementById('incomeamt')
+  // let expenseamt = document.getElementById('expenseamt')
+  // let balanceamt = document.getElementById('balanceamt')
   let income = incomeamt.innerHTML
   let expense = expenseamt.innerHTML
   income = income.replace('$','')
