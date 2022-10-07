@@ -82,8 +82,15 @@ decrementexpense = (a) => {
   let expense = expenseamt.innerHTML
   expense = expense.replace('$','')
   expense = parseInt(expense)
-  expense = expense - a
-  expenseamt.innerHTML = "$" + parseInt(expense)
+  if((expense + a)<0){
+    expense = expense + a
+    expense = -expense
+    expenseamt.innerHTML = "$" + parseInt(expense)
+  }
+  else{
+    expense = expense + a
+    expenseamt.innerHTML = "$" + parseInt(expense)
+  }    
 }
 
 incrementexpense = (a) => {
@@ -91,8 +98,7 @@ incrementexpense = (a) => {
   let expense = expenseamt.innerHTML
   expense = expense.replace('$','')
   expense = parseInt(expense)
-  expense = expense + a
-  expense = -expense
+  expense = expense - a
   expenseamt.innerHTML = "$" + parseInt(expense)
 }
 
