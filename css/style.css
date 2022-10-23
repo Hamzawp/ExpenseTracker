@@ -38,6 +38,12 @@ nav h1{
     padding-right: 2em;
     /* margin-left: 2em; */
 }
+#incomeamt{
+    color: green;
+}
+#expenseamt{
+    color: red;
+}
 .history{
     margin-top: 4vh;
     /* height: 25vh; */

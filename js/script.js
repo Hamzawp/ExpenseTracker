@@ -65,6 +65,7 @@ incrementincome = (a) => {
   income = parseInt(income)
   income = income + a
   incomeamt.innerHTML = "$" + parseInt(income)
+  addBtn.style.backgroundColor = "green"
 }
 
 decrementincome = (a) => {
@@ -99,6 +100,7 @@ incrementexpense = (a) => {
   expense = parseInt(expense)
   expense = expense - a
   expenseamt.innerHTML = "$" + parseInt(expense)
+  addBtn.style.backgroundColor = "red"
 }
 
 function balanceAmt(){
